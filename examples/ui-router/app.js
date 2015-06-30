@@ -1,26 +1,20 @@
 // declare global dependency list for app module only once (usually in config.js)
-angular.module('starterApp', ['ui.router']);
+angular.module('myApp', ['ui.router']);
 
 // configuration
-angular.module('starterApp')
-.config(function($stateProvider, $urlRouterProvider) {
+angular.module('myApp').config(function($stateProvider, $urlRouterProvider) {
 	
-	$urlRouterProvider.otherwise('/');
 	$stateProvider
 	
-	.state('signin', {
-		url: '/',
-		templateUrl: 'app/signin.html'
-	});
-});
-
-// add controllers to the app module
-angular.module('starterApp')
-.controller('signinController', function($scope) {
+		.state('signin', {
+			url: '/',
+			templateUrl: 'app/signin.html'
+		})
+		.state('contacts', {
+			url: '/contacts',
+			templateUrl: 'app/contacts.html',
+		});
 	
-});
-
-angular.module('starterApp')
-.controller('testController', function($scope) {
-	$scope.test = 'Welcome to Angular!';
+	
+	$urlRouterProvider.otherwise('/');
 });
