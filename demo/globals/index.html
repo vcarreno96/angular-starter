@@ -1,39 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Angular Starter</title>
 
-<!-- bower:css -->
-
+<!-- component css -->
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
 
-<!--common libraries-->
+<!-- component libraries -->
 <script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<!--app code-->
-<link rel="stylesheet" href="app/app.css" />
+ 
+ <!--app code-->
 <script src="app/app.js"></script>
 
 </head>
 
-<body>
+<body ng-controller="testCtrl">
+  
+  <pre>{{test}}</pre>
+  <input type="text" ng-model="test"></text>
+  <input type="text" ng-model="test"></text>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
         <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
+
+     <hr>
+     
+
 
 </body>
 
