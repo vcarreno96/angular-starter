@@ -1,5 +1,3 @@
-'use strict';
-
 // declare global dependency list for app module only once (usually in config.js)
 angular.module('starterApp', []);
 
@@ -7,8 +5,8 @@ angular.module('starterApp', []);
 angular.module('starterApp')
 .controller('testController', function($scope) {
 	$scope.test = 'Welcome to Angular!';
-	function testController($scope){
-		console.log('this is everywhere %s', $scope);
-	}
 });
 
+function testController($scope){
+	console.log('this is everywhere %s', $scope);
+}
