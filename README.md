@@ -13,6 +13,12 @@
 
 ## Running
 1.  Open command prompt at root directory and run command
+
     ```
     node server
+    ```
+2.  Optionally command prompt at root directory and run command
+
+    ```
+    nodemon server
     ```
