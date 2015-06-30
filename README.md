@@ -11,19 +11,8 @@
     ```
 3. (optional) Install nodemon project to avoid restarting node express server on changes https://github.com/remy/nodemon
 
-
 ## Running
-
-    ```
-    npm install
-    ```
-
+1.  Open command prompt at root directory and run command
     ```
     node server
-    ```
-    
-    or optionally
-    
-    ```
-    nodemon server
     ```
