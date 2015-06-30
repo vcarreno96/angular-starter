@@ -7,8 +7,8 @@ angular.module('starterApp', []);
 angular.module('starterApp')
 .controller('testController', function($scope) {
 	$scope.test = 'Welcome to Angular!';
+	function testController($scope){
+		console.log('this is everywhere %s', $scope);
+	}
 });
 
-function testController($scope){
-	console.log('this is everywhere %s', $scope);
-}
