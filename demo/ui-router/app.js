@@ -10,9 +10,28 @@ angular.module('myApp').config(function($stateProvider, $urlRouterProvider) {
 			url: '/',
 			templateUrl: 'app/signin.html'
 		})
-		.state('contacts', {
+		
+		.state('home', {
+			abstract: true,
+			templateUrl: 'app/home.html'
+		})
+		
+		.state('home.blog', {
+			url: '/blog',
+			views: {
+				'content': {
+					templateUrl: 'app/blog.html'
+				}	
+			}
+		})		
+		
+		.state('home.contacts', {
 			url: '/contacts',
-			templateUrl: 'app/contacts.html',
+			views: {
+				'content': {
+					templateUrl: 'app/contacts.html',
+				}	
+			}
 		});
 	
 	
