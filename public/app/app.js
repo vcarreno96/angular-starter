@@ -1,5 +1,5 @@
 // declare global dependency list for app module only once (usually in config.js)
-angular.module('myApp', ['ui.router']);
+angular.module('myApp', ['ui.router', 'ui.bootstrap']);
 
 // configuration
 angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
