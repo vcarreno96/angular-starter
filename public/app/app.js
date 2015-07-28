@@ -9,7 +9,7 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
 	$stateProvider
 	
 		.state('signin', {
-			url: '/',
+			url: '/signin',
 			templateUrl: 'app/signin.html'
 		})
 		
@@ -25,10 +25,10 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
 					templateUrl: 'app/blog.html'
 				}	
 			}
-		})		
+		})	
 		
 		.state('home.contacts', {
-			url: '/contacts',
+			url: '/',
 			views: {
 				'content': {
 					templateUrl: 'app/contacts.html',
@@ -36,6 +36,37 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
 			}
 		});
 	
-	
 	$urlRouterProvider.otherwise('/');
 }]);
+
+// controllers
+angular.module('myApp').controller('contactsController', ['$scope', '$http', function($scope, $http) {
+	$scope.test = 'Hello';
+	$http.get('app/patients.json')
+	.success(function(data){
+		$scope.Data = data.results;
+		console.log(data);
+	})
+	.error(function(err){
+		console.log(err);
+	});
+	
+}]);
+
+// filters
+
+angular.module('myApp').filter("formatUserName", [function () {
+    return function (value) {
+            return value.title + ' ' + value.first + ' ' + value.last;
+    };
+}]);
+
+// http://ng.malsup.com/#!/titlecase-filter
+angular.module('myApp').filter('titlecase', function() {
+    return function(s) {
+        s = ( s === undefined || s === null ) ? '' : s;
+        return s.toString().toLowerCase().replace( /\b([a-z])/g, function(ch) {
+            return ch.toUpperCase();
+        });
+    };
+});   
