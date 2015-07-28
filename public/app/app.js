@@ -41,8 +41,17 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
 
 // controllers
 angular.module('myApp').controller('contactsController', ['$scope', '$http', '$modal', function($scope, $http, $modal) {
-	$scope.test = 'Hello';
+
+	// load initial daa
+	$http.get('app/patients.json').success(function(data){
+		$scope.Data = data.results;
+		console.log(data);
+	})
+	.error(function(err){
+		console.log(err);
+	});
 	
+	// open edit user modal
 	$scope.openModal = function(user) {
 		
         $modal.open({
@@ -58,16 +67,7 @@ angular.module('myApp').controller('contactsController', ['$scope', '$http', '$m
             size: 'md',
             scope: $scope
         });		
-	};
-	
-	$http.get('app/patients.json')
-	.success(function(data){
-		$scope.Data = data.results;
-		console.log(data);
-	})
-	.error(function(err){
-		console.log(err);
-	});
+	};	
 	
 }]);
 

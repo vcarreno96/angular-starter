@@ -3,13 +3,13 @@
             <img ng-src="{{User.picture.thumbnail}}" alt="{{User.name | formatUserName | titlecase}}"  />
         </div>
         <div >
-            <span >{{User.name | formatUserName | titlecase}}</span><br/>
+            {{User.name | formatUserName | titlecase}}<br>
             <!--<span data-toggle="tooltip" title="{{item.user.location.street}}"></span>-->
-            <span > <span>{{User.location.street}}</span><br/></span>
+            <input type="text" ng-model="User.location.street" />
             <!--<span data-toggle="tooltip" title="{{item.user.phone}}"></span>-->
-            <span > <span >{{User.phone}}</span><br/></span>
+            <input type="text" ng-model="User.phone" />
             <!--<span data-toggle="tooltip" title="{{item.user.email}}"></span>-->
-            <span > <span >{{User.email}}</span><br/></span>
+            <input type="text" ng-model="User.email" />
         </div>
         <div class="clearfix"></div>
 </div>
