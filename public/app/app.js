@@ -8,6 +8,15 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
 	
 	$stateProvider
 	
+		.state('home.contacts', {
+			url: '/',
+			views: {
+				'content': {
+					templateUrl: 'app/contacts.html',
+				}	
+			}
+		})
+		
 		.state('signin', {
 			url: '/signin',
 			templateUrl: 'app/signin.html'
@@ -23,15 +32,6 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
 			views: {
 				'content': {
 					templateUrl: 'app/blog.html'
-				}	
-			}
-		})	
-		
-		.state('home.contacts', {
-			url: '/',
-			views: {
-				'content': {
-					templateUrl: 'app/contacts.html',
 				}	
 			}
 		});

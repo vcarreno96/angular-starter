@@ -1,21 +1,21 @@
-<div class="container" ng-controller="contactsController">
+<div ng-controller="contactsController">
  
-    <div class="row">
-        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-                <ul class="list-group" id="contact-list" ng-repeat="item in Data">
-                    <li class="list-group-item">
-                        <div class="col-xs-12 col-sm-3">
-                            <!--<img src="http://api.randomuser.me/portraits/men/49.jpg" alt="Scott Stevens" class="img-responsive img-circle" />-->
-                            <img ng-src="{{item.user.picture.thumbnail}}" alt="Scott Stevens" class="img-responsive img-circle"  />
+    <div>
+        <div>
+               <ul id="contact-list" ng-repeat="item in Data">
+                    <li >
+                        <div>
+                            <img ng-src="{{item.user.picture.thumbnail}}" alt="Scott Stevens"  />
                         </div>
-                        <div class="col-xs-12 col-sm-9">
-                            <span class="name">{{item.user.name | formatUserName | titlecase}}</span><br/>
-                            <span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip" title="{{item.user.location.street}}"></span>
-                            <span class="visible-xs"> <span class="text-muted">{{item.user.location.street}}</span><br/></span>
-                            <span class="glyphicon glyphicon-earphone text-muted c-info" data-toggle="tooltip" title="{{item.user.phone}}"></span>
-                            <span class="visible-xs"> <span class="text-muted">{{item.user.phone}}</span><br/></span>
-                            <span class="fa fa-comments text-muted c-info" data-toggle="tooltip" title="{{item.user.email}}"></span>
-                            <span class="visible-xs"> <span class="text-muted">{{item.user.email}}</span><br/></span>
+                        <div >
+                            <span >{{item.user.name | formatUserName | titlecase}}</span><br/>
+                            <!--<span data-toggle="tooltip" title="{{item.user.location.street}}"></span>-->
+                            <span > <span>{{item.user.location.street}}</span><br/></span>
+                            <!--<span data-toggle="tooltip" title="{{item.user.phone}}"></span>-->
+                            <span > <span >{{item.user.phone}}</span><br/></span>
+                            <!--<span data-toggle="tooltip" title="{{item.user.email}}"></span>-->
+                            <span > <span >{{item.user.email}}</span><br/></span>
+                            <button ng-click="openModal(item)"> <i></i> Edit </button></td>
                         </div>
                         <div class="clearfix"></div>
                     </li> 
@@ -23,20 +23,4 @@
             </div>
         </div>
 	</div>
-    
-    <div id="cant-do-all-the-work-for-you" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="mySmallModalLabel">Ooops!!!</h4>
-                </div>
-                <div class="modal-body">
-                    <p>I am being lazy and do not want to program an "Add User" section into this snippet... So it looks like you'll have to do that for yourself.</p><br/>
-                    <p><strong>Sorry<br/>
-                    ~ Mouse0270</strong></p>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
