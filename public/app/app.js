@@ -52,7 +52,7 @@ angular.module('myApp').controller('contactsController', ['$scope', '$http', '$m
 	});
 	
 	// open edit user modal
-	$scope.openModal = function(user) {
+	$scope.openModal = function(item) {
 		
         $modal.open({
             templateUrl: 'app/contactEdit.html',
@@ -61,7 +61,7 @@ angular.module('myApp').controller('contactsController', ['$scope', '$http', '$m
 			},
 			resolve: {
 				user: function() {
-					return angular.copy(user);
+					return item.user;
 				}
 			},
             size: 'md',

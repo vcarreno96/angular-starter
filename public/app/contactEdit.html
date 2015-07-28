@@ -5,6 +5,10 @@
         <div >
             {{User.name | formatUserName | titlecase}}<br>
             <!--<span data-toggle="tooltip" title="{{item.user.location.street}}"></span>-->
+            
+            <input type="text" ng-model="User.name.title" />
+            <input type="text" ng-model="User.name.first" />
+            <input type="text" ng-model="User.name.last" />
             <input type="text" ng-model="User.location.street" />
             <!--<span data-toggle="tooltip" title="{{item.user.phone}}"></span>-->
             <input type="text" ng-model="User.phone" />
