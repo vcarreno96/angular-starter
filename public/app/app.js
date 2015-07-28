@@ -40,8 +40,26 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
 }]);
 
 // controllers
-angular.module('myApp').controller('contactsController', ['$scope', '$http', function($scope, $http) {
+angular.module('myApp').controller('contactsController', ['$scope', '$http', '$modal', function($scope, $http, $modal) {
 	$scope.test = 'Hello';
+	
+	$scope.openModal = function(user) {
+		
+        $modal.open({
+            templateUrl: 'app/contactEdit.html',
+            controller: function(user) {
+				$scope.User = user;
+			},
+			resolve: {
+				user: function() {
+					return angular.copy(user);
+				}
+			},
+            size: 'md',
+            scope: $scope
+        });		
+	};
+	
 	$http.get('app/patients.json')
 	.success(function(data){
 		$scope.Data = data.results;

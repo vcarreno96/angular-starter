@@ -1,25 +1,15 @@
 <div >
-    <div>
         <div>
-               <ul id="contact-list">
-                    <li >
-                        <div>
-                            <img ng-src="{{item.user.picture.thumbnail}}" alt="Scott Stevens"  />
-                        </div>
-                        <div >
-                            <span >{{item.user.name | formatUserName | titlecase}}</span><br/>
-                            <!--<span data-toggle="tooltip" title="{{item.user.location.street}}"></span>-->
-                            <span > <span>{{item.user.location.street}}</span><br/></span>
-                            <!--<span data-toggle="tooltip" title="{{item.user.phone}}"></span>-->
-                            <span > <span >{{item.user.phone}}</span><br/></span>
-                            <!--<span data-toggle="tooltip" title="{{item.user.email}}"></span>-->
-                            <span > <span >{{item.user.email}}</span><br/></span>
-                            <button ng-click="openModal(item)"> <i></i> Edit </button></td>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li> 
-                </ul>
-            </div>
+            <img ng-src="{{User.picture.thumbnail}}" alt="{{User.name | formatUserName | titlecase}}"  />
         </div>
-	</div>
+        <div >
+            <span >{{User.name | formatUserName | titlecase}}</span><br/>
+            <!--<span data-toggle="tooltip" title="{{item.user.location.street}}"></span>-->
+            <span > <span>{{User.location.street}}</span><br/></span>
+            <!--<span data-toggle="tooltip" title="{{item.user.phone}}"></span>-->
+            <span > <span >{{User.phone}}</span><br/></span>
+            <!--<span data-toggle="tooltip" title="{{item.user.email}}"></span>-->
+            <span > <span >{{User.email}}</span><br/></span>
+        </div>
+        <div class="clearfix"></div>
 </div>
