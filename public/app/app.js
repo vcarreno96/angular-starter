@@ -51,21 +51,28 @@ angular.module('myApp').controller('contactsController', ['$scope', '$http', '$m
 		console.log(err);
 	});
 	
+	$scope.test = function() {
+	    console.log('test');
+	}
+
+
+
 	// open edit user modal
 	$scope.openModal = function(item) {
 		
         $modal.open({
             templateUrl: 'app/contactEdit.html',
             controller: function(user) {
-				$scope.User = user;
-			},
+                $scope.User = user;
+                $scope.test();
+            },
 			resolve: {
 				user: function() {
-					return item.user;
+					return angular.copy(item.user);
 				}
 			},
             size: 'md',
-            scope: $scope
+            scope: $scope // -- contactsController $scope
         });		
 	};	
 	
