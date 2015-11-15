@@ -1,24 +1,18 @@
+(function(){
+
+
 // declare global dependency list for app module only once (usually in config.js)
-angular.module('myApp', ['ui.router', 'ui.bootstrap']);
+angular.module('app', ['ui.router', 'ui.bootstrap']);
 
 // configuration
-angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
+angular.module('app').config(['$stateProvider', '$urlRouterProvider',
 	
 	function($stateProvider, $urlRouterProvider) {
 	
 	$stateProvider
-	
-		.state('home.contacts', {
-			url: '/',
-			views: {
-				'content': {
-					templateUrl: 'app/contacts.html',
-				}	
-			}
-		})
 		
 		.state('signin', {
-			url: '/signin',
+			url: '/',
 			templateUrl: 'app/signin.html'
 		})
 		
@@ -34,13 +28,22 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
 					templateUrl: 'app/blog.html'
 				}	
 			}
+		})
+		
+		.state('home.contacts', {
+			url: '/contacts',
+			views: {
+				'content': {
+					templateUrl: 'app/contacts.html',
+				}	
+			}
 		});
 	
 	$urlRouterProvider.otherwise('/');
 }]);
 
 // controllers
-angular.module('myApp').controller('contactsController', ['$scope', '$http', '$modal', function($scope, $http, $modal) {
+angular.module('app').controller('contactsController', ['$scope', '$http', '$modal', function($scope, $http, $modal) {
 
 	// load initial daa
 	$http.get('app/patients.json').success(function(data){
@@ -80,18 +83,20 @@ angular.module('myApp').controller('contactsController', ['$scope', '$http', '$m
 
 // filters
 
-angular.module('myApp').filter("formatUserName", [function () {
+angular.module('app').filter("formatUserName", [function () {
     return function (value) {
             return value.title + ' ' + value.first + ' ' + value.last;
     };
 }]);
 
 // http://ng.malsup.com/#!/titlecase-filter
-angular.module('myApp').filter('titlecase', function() {
+angular.module('app').filter('titlecase', function() {
     return function(s) {
         s = ( s === undefined || s === null ) ? '' : s;
         return s.toString().toLowerCase().replace( /\b([a-z])/g, function(ch) {
             return ch.toUpperCase();
         });
     };
-});   
+});   	
+	
+}());
