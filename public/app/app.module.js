@@ -22,26 +22,37 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider',
 		
 		.state('home', {
 			abstract: true,
-			templateUrl: 'app/layout/home.html'
-		})
-		
-		.state('home.blog', {
-			url: '/blog',
 			views: {
-				'content': {
-					templateUrl: 'app/blog/blog.html'
-				}	
-			}
+				'@': {
+					templateUrl: 'app/layout/home.html'
+				},
+				'nav@home': {
+					templateUrl: 'app/layout/topnav.html'
+				}
+			},
+			data: {
+				proxy: 'home.contacts'
+			}			
 		})
 		
 		.state('home.contacts', {
 			url: '/contacts',
 			views: {
-				'content': {
+				'content@home': {
 					templateUrl: 'app/contacts/contacts.html',
 				}	
 			}
+		})		
+		
+		.state('home.blog', {
+			url: '/blog',
+			views: {
+				'content@home': {
+					templateUrl: 'app/blog/blog.html'
+				}	
+			}
 		});
+
 	
 	$urlRouterProvider.otherwise('/');
 }]);

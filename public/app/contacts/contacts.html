@@ -1,8 +1,8 @@
-<div class="container" ng-controller="ContactsController as contacts">
+<div class="container" ng-controller="ContactsController as contactsCtrl">
 
     <div class="row">
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-            <ul class="list-group" id="contact-list" ng-repeat="item in contacts.Data">
+            <ul class="list-group" id="contact-list" ng-repeat="item in contactsCtrl.Data">
                 <li class="list-group-item">
                     <div class="col-xs-12 col-sm-3">
                         <!--<img src="http://api.randomuser.me/portraits/men/49.jpg" alt="Scott Stevens" class="img-responsive img-circle" />-->
@@ -16,7 +16,7 @@
                         <span class="visible-xs"> <span class="text-muted">{{item.user.phone}}</span><br /></span>
                         <span class="fa fa-comments text-muted c-info" data-toggle="tooltip" title="{{item.user.email}}"></span>
                         <span class="visible-xs"> <span class="text-muted">{{item.user.email}}</span><br /></span>
-                        <button ng-click="contacts.openModal(item)"> <i class="fa fa-edit"></i> Edit </button>
+                        <button ng-click="contactsCtrl.openModal(item)"> <i class="fa fa-edit"></i> Edit </button>
                     </div>
                     <div class="clearfix"></div>
                 </li>

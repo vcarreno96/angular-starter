@@ -13,10 +13,19 @@
 		// open edit user modal
 		vm.openModal = function (item) {
 
-			$modal.open({
+			 $modal.open({
 				templateUrl: 'app/contacts/contacts-edit.html',
-				controller: function (user) {
+				backdrop: 'static',
+				controller: function (user, $modalInstance) {
 					$scope.User = user;
+					
+					$scope.ok = function() {
+						toastr.success('Saved contact info for ' + $scope.User.name.first + '!', 'Success');
+						$modalInstance.close();
+					}
+					$scope.cancel = function () {
+						$modalInstance.dismiss('cancel');
+					};
 				},
 				resolve: {
 					user: function () {

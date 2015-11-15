@@ -6,14 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Angular Starter</title>
 
-<!-- bower:css -->
+<!-- common:css -->
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
 <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+<link rel="stylesheet" href="bower_components/toastr/toastr.css" />
 
 <!--common libraries-->
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/toastr/toastr.js"></script>
 
 <!--app code-->
 <link rel="stylesheet" href="content/app.css" />
@@ -22,11 +25,13 @@
 <!--app core> -->
 <script src="app/core/core.module.js"></script>
 <script src="app/core/core.filters.js"></script>
+<script src="app/core/core.constants.js"></script>
+<script src="app/core/core.services.js"></script>
 
 <!--app controllers -->
 <script src="app/signin/signin-controller.js"></script>
 <script src="app/contacts/contacts-controller.js"></script>
-
+<script src="app/layout/topnav-controller.js"></script>
 
 </head>
 

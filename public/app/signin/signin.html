@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="app/signin/signin.css" />
 
-<div class="container" ng-controller="SignInController as signin">
+<div class="container" ng-controller="SignInController as signinCtrl">
 
   <form class="form-signin">
     <h2 class="form-signin-heading">Please sign in</h2>
@@ -13,7 +13,7 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" ui-sref="home.contacts">Sign in</button>
   </form>
 
 </div> <!-- /container -->
