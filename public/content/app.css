@@ -1,6 +1,6 @@
 /* Have to set height explicity on ui-view 
 to prevent collapsing during animation*/
-.ui-view-container {
+/*.ui-view-container {
   position: relative;
   height: 65px;
 }
@@ -41,4 +41,4 @@ to prevent collapsing during animation*/
   -webkit-transform:translate3d(100px, 0, 0);
   -moz-transform:translate3d(100px, 0, 0);
   transform:translate3d(100px, 0, 0);
-}
+}*/

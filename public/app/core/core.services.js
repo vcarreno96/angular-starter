@@ -27,11 +27,19 @@
 			if (username === 'dado') {
 				authToken = 4567;
 			}
-			return authToken;
+			if(authToken) {
+				
+				sessionStorage.save('user', {
+					name: username,
+					token: authToken
+				});
+			}
+			
+			return (authToken ? true : false);
 		}
 
 		function logout() {
-
+			sessionStorage.remove('user');				
 		}
 	}
 
@@ -47,12 +55,30 @@
 		}
 
 		function logout() {
-
+			
 		}
 	}
 
 	function sessionStorage($window) {
+		var service = {
+			get: get,
+			save: save,
+			remove: remove
+		};
+		
+		return service;
+		
+		function get (key) {
+			return JSON.parse($window.sessionStorage.getItem(key));
+		}
 
+		function save (key, data) {
+			$window.sessionStorage.setItem(key, JSON.stringify(data));
+		}
+
+		function remove (key) {
+			$window.sessionStorage.removeItem(key);
+		}
 	}
 
 } ());

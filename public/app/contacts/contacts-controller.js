@@ -16,6 +16,7 @@
 			 $modal.open({
 				templateUrl: 'app/contacts/contacts-edit.html',
 				backdrop: 'static',
+				animation: true,
 				controller: function (user, $modalInstance) {
 					$scope.User = user;
 					

@@ -1,10 +1,22 @@
 <!-- NAVIGATION -->
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="#">Angular Meetup Site</a>
+<nav class="navbar navbar-default" ng-controller="TopNavController as topnav">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="#">Angular Meetup Site</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="home.contacts">Contacts</a></li>
+                <li><a ui-sref="home.blog">Blog</a></li>
+            </ul>
+            <div class="pull-right">
+                <button class="btn btn-default navbar-btn" ng-click="topnav.signout()">Sign Out</button>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <ul class="nav navbar-nav">
-        <li><a ui-sref="home.contacts">Contacts</a></li>
-        <li><a ui-sref="home.blog">Blog</a></li>
-    </ul>
+    <!-- /.container-fluid -->
 </nav>

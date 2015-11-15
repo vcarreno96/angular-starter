@@ -1,13 +1,21 @@
-(function(){
-	
-'use strict';
+(function () {
 
-angular.module('app').controller('SignInController', SignInController);
+	'use strict';
 
+	angular.module('app').controller('SignInController', SignInController);
 
-function SignInController(){
-	
-}
+	SignInController.$inject = ['authentication', '$state'];
 
-	
-}());
+	function SignInController(authentication, $state) {
+		var vm = this;
+		
+		authentication.logout();
+		
+		vm.login = function () {
+			if (authentication.login(vm.username, vm.password)) {
+				$state.go('home.contacts');
+			}
+		}
+	}
+
+} ());

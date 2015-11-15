@@ -4,6 +4,7 @@
 
 // declare global dependency list for app module only once (usually in config.js)
 angular.module('app', [
+	'ngAnimate', 
 	'app.core',
 	'ui.router',
 	'ui.bootstrap']);
