@@ -4,6 +4,7 @@
 
 // declare global dependency list for app module only once (usually in config.js)
 angular.module('app', [
+	'app.core',
 	'ui.router',
 	'ui.bootstrap']);
 
@@ -21,14 +22,14 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider',
 		
 		.state('home', {
 			abstract: true,
-			templateUrl: 'app/home.html'
+			templateUrl: 'app/layout/home.html'
 		})
 		
 		.state('home.blog', {
 			url: '/blog',
 			views: {
 				'content': {
-					templateUrl: 'app/blog.html'
+					templateUrl: 'app/blog/blog.html'
 				}	
 			}
 		})
@@ -44,22 +45,5 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider',
 	
 	$urlRouterProvider.otherwise('/');
 }]);
-
-// filters
-angular.module('app').filter("formatUserName", [function () {
-    return function (value) {
-            return value.title + ' ' + value.first + ' ' + value.last;
-    };
-}]);
-
-// http://ng.malsup.com/#!/titlecase-filter
-angular.module('app').filter('titlecase', function() {
-    return function(s) {
-        s = ( s === undefined || s === null ) ? '' : s;
-        return s.toString().toLowerCase().replace( /\b([a-z])/g, function(ch) {
-            return ch.toUpperCase();
-        });
-    };
-});   	
 	
 }());
