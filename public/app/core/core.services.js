@@ -23,18 +23,21 @@
 		return service;
 
 		function login(username, password) {
-			var authToken;
+			var authToken,
+				permissions;
 			if (username === 'victor'){
 				authToken = 1234;
+				permissions = ['Edit Contact', 'View Blog'];
 			}
 			if (username === 'dado') {
 				authToken = 4567;
+				permissions = ['Edit Contact'];
 			}
 			if(authToken) {
-				
 				sessionStorage.save('user', {
 					name: username,
-					token: authToken
+					token: authToken,
+					permissions: permissions
 				});
 			}
 			
@@ -46,12 +49,7 @@
 		}
 		
 		function isAuthenticated() {
-			var user = sessionStorage.get('user');
-			// check if user is still valid
-			if(user) {
-				return (service.login(user.name, ''));
-			}
-			return false;
+			return (!!sessionStorage.get('user'));
 		}
 	}
 

@@ -17,8 +17,10 @@ angular.module('app')
 			    
                 $rootScope.$on('$stateChangeStart', function (event, next) {
 					
+					// prevent unauthenticated users from navigating to any route except signin
                     if (next.url !== "/" && !authentication.isAuthenticated()) {
-                 			event.preventDefault();
+						event.preventDefault();
+						toastr.error('Dude, who are you??', 'Error');
                     }
                 });
             }])
