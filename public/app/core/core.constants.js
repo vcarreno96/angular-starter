@@ -4,7 +4,8 @@
 
         angular.module('app.core')
                 .constant('PERMISSIONS', {
-                        editContact: 'Edit Contact',
+                        viewContacts: 'View Contacts',
+                        editContacts: 'Edit Contacts',
                         viewBlog: 'View Blog'
                 })
 

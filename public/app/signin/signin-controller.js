@@ -4,15 +4,16 @@
 
 	angular.module('app').controller('SignInController', SignInController);
 
-	SignInController.$inject = ['authentication', '$state'];
+	SignInController.$inject = ['security', '$state'];
 
-	function SignInController(authentication, $state) {
+	function SignInController(security, $state) {
 		var vm = this;
 		
-		authentication.logout();
+		// clear previous user from sessions
+		security.logout();
 		
 		vm.login = function () {
-			if (authentication.login(vm.username, vm.password)) {
+			if (security.login(vm.username, vm.password)) {
 				$state.go('home.contacts');
 			}
 		}

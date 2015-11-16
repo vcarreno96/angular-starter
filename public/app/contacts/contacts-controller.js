@@ -39,7 +39,7 @@
 		};	
 	
 		// load initial daa
-		$http.get('app/contacts/patients.json').success(function (data) {
+		$http.get('app/contacts/contacts.json').success(function (data) {
 			vm.Data = data.results;
 		})
 		.catch(function (err) {

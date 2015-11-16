@@ -30,13 +30,14 @@
 <script src="app/core/core.services.js"></script>
 
 <!--app controllers -->
+<script src="app/app-controller.js"></script>
 <script src="app/signin/signin-controller.js"></script>
 <script src="app/contacts/contacts-controller.js"></script>
 <script src="app/layout/topnav-controller.js"></script>
 
 </head>
 
-<body>
+<body ng-controller="AppController">
     <div ui-view></div>
 </body>
 

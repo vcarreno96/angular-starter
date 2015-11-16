@@ -4,20 +4,18 @@
 	angular.module('app.core')
 
 		.factory('sessionStorage', sessionStorage)
-		.factory('authentication', authentication)
-		.factory('authorization', authorization);
+		.factory('security', security);
 
 	sessionStorage.$inject = ['$window'];
-	authentication.$inject = ['sessionStorage'];
-	authorization.$inject = ['authentication'];
+	security.$inject = ['sessionStorage', '$filter'];
 
-
-	function authentication(sessionStorage) {
+	function security(sessionStorage, $filter) {
 		
 		var service = {
 			login: login,
 			logout: logout,
-			isAuthenticated: isAuthenticated
+			isAuthenticated: isAuthenticated,
+			isAuthorized: isAuthorized
 		};
 		
 		return service;
@@ -27,12 +25,18 @@
 				permissions;
 			if (username === 'victor'){
 				authToken = 1234;
-				permissions = ['Edit Contact', 'View Blog'];
+				permissions = [{name:'View Contacts'}, {name:'Edit Contacts'}, {name:'View Blog'}];
 			}
 			if (username === 'dado') {
 				authToken = 4567;
-				permissions = ['Edit Contact'];
+				permissions = [{name:'View Contacts'},  {name:'Edit Contacts'}];
 			}
+			if (username === 'butch') {
+				authToken = 8912;
+				permissions = [{
+					name:'View Contacts'}
+				];
+			}			
 			if(authToken) {
 				sessionStorage.save('user', {
 					name: username,
@@ -49,24 +53,32 @@
 		}
 		
 		function isAuthenticated() {
-			return (!!sessionStorage.get('user'));
+			return (sessionStorage.get('user'));
 		}
-	}
-
-	function authorization(authentication) {
-		var service = {
-			login: login,
-			logout: logout
-		};
-		return service;
-
-		function login(username, password) {
-
-		}
-
-		function logout() {
+		
+		function isAuthorized(permissions) {
+			var hasPermission = false,
+				user = sessionStorage.get('user');
 			
-		}
+			if(user) {
+				
+				// allow passing single string object by converting to array
+				if (!angular.isArray(permissions)) {
+					permissions = [permissions];
+				}
+				
+				permissions.forEach(function (permission) {
+					if (!hasPermission) {
+						// find a record in the user's permissions matching the permission name required
+						hasPermission = $filter('filter')(user.permissions, {
+							name: permission
+						}, true).length > 0;
+					}
+				});
+			}
+			
+			return (hasPermission);
+		}		
 	}
 
 	function sessionStorage($window) {
