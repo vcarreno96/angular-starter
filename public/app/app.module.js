@@ -10,7 +10,20 @@ angular.module('app', [
 	'ui.bootstrap']);
 
 // configuration
-angular.module('app').config(['$stateProvider', '$urlRouterProvider',
+angular.module('app')
+
+        .run(['$state', '$rootScope', 'authentication',
+		  function ($state, $rootScope, authentication) {
+			    
+                $rootScope.$on('$stateChangeStart', function (event, next) {
+					
+                    if (next.url !== "/" && !authentication.isAuthenticated()) {
+                 			event.preventDefault();
+                    }
+                });
+            }])
+
+.config(['$stateProvider', '$urlRouterProvider',
 	
 	function($stateProvider, $urlRouterProvider) {
 	
@@ -53,8 +66,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider',
 				}	
 			}
 		});
-
-	
+		
 	$urlRouterProvider.otherwise('/');
 }]);
 	

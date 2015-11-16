@@ -13,10 +13,13 @@
 
 
 	function authentication(sessionStorage) {
+		
 		var service = {
 			login: login,
-			logout: logout
+			logout: logout,
+			isAuthenticated: isAuthenticated
 		};
+		
 		return service;
 
 		function login(username, password) {
@@ -40,6 +43,15 @@
 
 		function logout() {
 			sessionStorage.remove('user');				
+		}
+		
+		function isAuthenticated() {
+			var user = sessionStorage.get('user');
+			// check if user is still valid
+			if(user) {
+				return (service.login(user.name, ''));
+			}
+			return false;
 		}
 	}
 
