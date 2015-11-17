@@ -14,7 +14,9 @@
 		
 		vm.login = function () {
 			if (security.login(vm.username, vm.password)) {
-				$state.go('home.contacts');
+			    $state.go('home.contacts');
+			} else {
+			    toastr.error('You are a  malicious person!', 'Authentication', { timeOut: 2000 });
 			}
 		}
 	}

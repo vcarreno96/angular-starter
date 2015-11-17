@@ -40,7 +40,7 @@
 				permissions = [{
 					name:'View Contacts'}
 				];
-			}			
+		    }
 			if(authToken) {
 				sessionStorage.save('user', {
 					name: name,
