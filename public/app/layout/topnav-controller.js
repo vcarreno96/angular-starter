@@ -4,12 +4,19 @@
 
 	angular.module('app').controller('TopNavController', TopNavController);
 	
-	TopNavController.$inject = ['$state'];
+	TopNavController.$inject = ['$scope', '$state', 'sessionStorage'];
 	
-	function TopNavController($state) {
+	function TopNavController($scope, $state, sessionStorage) {
+	    var vm = this;
+	    var user = sessionStorage.get('user');
+	    vm.permissions = '';
+        if (user) {
+            vm.userName = user.name;
+            vm.permissions = user.permissions;
+        }
 
-		var vm = this;
-		vm.signout = function(){
+	    // facade on the state service routing method
+        vm.signout = function () {
 			$state.go('signin');		
 		}
 	}

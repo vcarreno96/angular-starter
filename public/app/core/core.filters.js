@@ -9,6 +9,7 @@
                 return value.title + ' ' + value.first + ' ' + value.last;
             };
         }])
+
     // http://ng.malsup.com/#!/titlecase-filter
         .filter('titlecase', function () {
             return function (s) {
@@ -18,6 +19,5 @@
                 });
             };
         });
-
 
 } ());

@@ -21,17 +21,21 @@
 		return service;
 
 		function login(username, password) {
-			var authToken,
+		    var name,
+                authToken,
 				permissions;
-			if (username === 'victor'){
+		    if (username === 'victor') {
+                name= 'Victor Carreno',
 				authToken = 1234;
 				permissions = [{name:'View Contacts'}, {name:'Edit Contacts'}, {name:'View Blog'}];
 			}
-			if (username === 'dado') {
+		    if (username === 'dado') {
+		        name= 'Dado Kljuco',
 				authToken = 4567;
 				permissions = [{name:'View Contacts'},  {name:'Edit Contacts'}];
 			}
-			if (username === 'butch') {
+		    if (username === 'butch') {
+		        name= 'Butch Johnson',
 				authToken = 8912;
 				permissions = [{
 					name:'View Contacts'}
@@ -39,7 +43,7 @@
 			}			
 			if(authToken) {
 				sessionStorage.save('user', {
-					name: username,
+					name: name,
 					token: authToken,
 					permissions: permissions
 				});

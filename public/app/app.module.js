@@ -16,12 +16,13 @@ angular.module('app')
 		  function ($state, $rootScope, security) {
 			    
                 $rootScope.$on('$stateChangeStart', function (event, next) {
-					var authorizedPermissions;
+                    var authorizedPermissions;
+
 					// prevent unauthenticated users from navigating to any route except signin
                     if (next.url !== "/" && !security.isAuthenticated()) {
 						event.preventDefault();
 						$state.go('signin');
-						toastr.error('Who are you??', 'Error');
+						toastr.error('I have no idea who you are??', 'Authentication', { timeOut: 2000 });
                     } else {
 						// check if we need to do authorization checks on the route
 						if (next.data && next.data.authorizedPermissions) {
@@ -30,7 +31,7 @@ angular.module('app')
 							if (authorizedPermissions) {
 								if (!security.isAuthorized(authorizedPermissions)) {
 									event.preventDefault();
-									toastr.error('You want what??', 'Error');
+									toastr.error('You don\'t have access to this feature.', 'Authorization', { timeOut: 2000 });
 								}
 							}							
 						}						
